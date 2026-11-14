@@ -1,0 +1,30 @@
+{
+  "name": "Padho pricing page: Annual plan as default (Oct 2026)",
+  "variant_col": "variant",
+  "control": "control",
+  "treatment": "treatment",
+  "expected_split": [0.5, 0.5],
+  "srm_drilldown": ["platform", "assign_day"],
+  "exclusion_note": "Exclude Android app visitors assigned on days 4-5 (build 7.4.1 dropped treatment exposure events) from BOTH arms",
+  "primary": {
+    "name": "projected_12m_revenue_per_visitor",
+    "type": "mean",
+    "col": "revenue_12m",
+    "cuped_covariate": "pre_sessions",
+    "bootstrap": true
+  },
+  "secondary": [
+    {"name": "paid_conversion", "type": "proportion", "col": "converted"},
+    {"name": "annual_share_of_payers", "type": "ratio", "num": "annual_plan", "den": "converted"},
+    {"name": "first_payment_revenue_per_visitor", "type": "mean", "col": "revenue_first_payment"},
+    {"name": "checkout_starts_per_pricing_view", "type": "ratio", "num": "checkout_starts", "den": "pricing_views"},
+    {"name": "learning_sessions_per_visitor", "type": "mean", "col": "sessions", "cuped_covariate": "pre_sessions"}
+  ],
+  "guardrails": [
+    {"name": "paid_conversion", "type": "proportion", "col": "converted", "max_decrease_rel": 0.05},
+    {"name": "refund_rate_7d", "type": "ratio", "num": "refunded", "den": "converted", "max_increase_abs": 0.01},
+    {"name": "checkout_error_rate", "type": "ratio", "num": "checkout_errors", "den": "checkout_starts", "max_increase_abs": 0.005}
+  ],
+  "segments": ["city_tier", "platform", "visitor_type"],
+  "segment_metrics": [{"name": "paid_conversion", "type": "proportion", "col": "converted"}]
+}

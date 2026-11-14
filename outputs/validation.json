@@ -1,0 +1,20 @@
+{
+  "n_aa_sims": 1000,
+  "aa_fpr_conversion": 0.037,
+  "aa_fpr_revenue": 0.042,
+  "aa_fpr_ratio_naive": 0.129,
+  "aa_fpr_ratio_delta": 0.047,
+  "cuped_mean_diff_aa": 0.00032455284166453156,
+  "cuped_sd_diff_aa": 0.010128492477703154,
+  "raw_sd_diff_aa": 0.013560539446800343,
+  "cuped_variance_reduction_sessions": 0.4944848625871342,
+  "cuped_variance_reduction_revenue": 0.005788063774585628,
+  "peeking_looks": 28,
+  "peeking_fpr_naive": 0.27205,
+  "peeking_fpr_obrien_fleming": 0.046,
+  "obf_first_look_z": 11.349178432548985,
+  "obf_final_look_z": 2.144793122673032,
+  "n_per_arm_rpv_mde_3pct": 397697,
+  "n_per_arm_sessions_mde_2pct_raw": 59081,
+  "n_per_arm_sessions_mde_2pct_cuped": 29867
+}
